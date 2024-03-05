@@ -17,6 +17,22 @@ public class Cons implements ImmutableList {
             return false;
         }
     } // equals
+
+    public int length() {
+        return 1 + tail.length();
+    } // length
+
+    public int sum() {
+        return head + tail.sum();
+    } // sum
+
+    public ImmutableList append(final ImmutableList other) {
+        return new Cons(head, tail.append(other));
+    } // append
+
+    public boolean contains(final int value) {
+        return head == value || tail.contains(value);
+    } // contains
     
     public String toString() {
         return "Cons(" + head + ", " + tail.toString() + ")";

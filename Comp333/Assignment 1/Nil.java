@@ -4,6 +4,22 @@ public class Nil implements ImmutableList {
     public boolean equals(final Object other) {
         return other instanceof Nil;
     } // equals
+
+    public int length() {
+        return 0; 
+    } // length
+
+    public int sum() {
+        return 0;
+    } // sum
+
+    public ImmutableList append(final ImmutableList other) {
+        return other;
+    } // append
+
+    public boolean contains(final int value) {
+        return false;
+    } // contains
     
     public String toString() {
         return "Nil";
