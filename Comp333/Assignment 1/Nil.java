@@ -6,19 +6,19 @@ public class Nil implements ImmutableList {
     } // equals
 
     public int length() {
-        return 0; 
+        return 0; // length of empty list is 0
     } // length
 
     public int sum() {
-        return 0;
+        return 0; // sum of empty list is 0
     } // sum
 
     public ImmutableList append(final ImmutableList other) {
-        return other;
+        return other; // empty list so other is returned
     } // append
 
     public boolean contains(final int value) {
-        return false;
+        return false; // empty list does not contain any values
     } // contains
     
     public String toString() {
