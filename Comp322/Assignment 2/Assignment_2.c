@@ -29,11 +29,11 @@ void printTable() {
     /* for each process */
     for (int i = 0; i < total_processes; i++) {
         /* print the contents (id, arrival time, total_cycles) of each field of the table's index */
-        printf("%d       %d       %d       ", process_table[i].id, process_table[i].arrival, process_table[i].total_cpu);
+        printf("%-8d%-8d%-8d", process_table[i].id, process_table[i].arrival, process_table[i].total_cpu);
         /* if process has been scheduled ("done" field is 1) */
-        if (process_table[i].done) {
+        if (process_table[i].done == 1) {
             /* print other contents (start time, end time, turnaround time) */ 
-            printf("%d       %d       %d", process_table[i].start_time, process_table[i].end_time, process_table[i].turnaround_time);
+            printf("%-8d%-8d%-8d\n", process_table[i].start_time, process_table[i].end_time, process_table[i].turnaround_time);
         } else {
             printf("\n");
         }
@@ -60,6 +60,7 @@ void enterParameters() {
         scanf("%d", &process_table[i].total_cpu);
     }
     /* print contents of table */
+    printf("\n");
     printTable();
     return;
 }
@@ -80,39 +81,58 @@ void fifo() {
         /* for each process not yet scheduled */
         for (int i = 0; i < total_processes; i++) {
             /* check if process has earlier arrival time than current earliest and update */
-            if (process_table[i].arrival < earliest) {
+            if (process_table[i].done != 1 && process_table[i].arrival < earliest) {
                 earliest = process_table[i].arrival;
                 earliest_index = i;
             }
         }
-        if (earliest_index != -1) {
         /* set start time, end time, turnaround time, done fields for unscheduled process with earliest arrival time */
-
-        }
-
+        process_table[earliest_index].start_time = current_time;
+        process_table[earliest_index].end_time = current_time + process_table[earliest_index].total_cpu;
+        process_table[earliest_index].turnaround_time = process_table[earliest_index].end_time - process_table[earliest_index].arrival;
+        process_table[earliest_index].done = 1;
+        /* update current cycle time and increment number of processes scheduled */
+        current_time += process_table[earliest_index].total_cpu;
+        scheduled++;
     }
-/* update current cycle time and increment number of
-processes scheduled */
-/* print contents of table */
-return;
+    /* print contents of table */
+    printTable();
+    return;
 }
 /***************************************************************/
 void sjf() {
-/* declare (and initilize when appropriate) local variables */
-/* for each process, reset "done" field to 0 */
-/* while there are still processes to schedule */
-/* initilize the lowest total cycle time to INT_MAX
-(largest integer value) */
-/* for each process not yet scheduled */
-/* check if process has lower total cycle
-time than current lowest and has arrival time less than current cycle time
-and update */
-/* set start time, end time, turnaround time, done fields
-for unscheduled process with lowest (and available) total cycle time */
-/* update current cycle time and increment number of
-processes scheduled */
-/* print contents of table */
-return;
+    /* declare (and initilize when appropriate) local variables */
+    int scheduled = 0;
+    int current_time = 0;
+    /* for each process, reset "done" field to 0 */
+    for (int i = 0; i < total_processes; i++) {
+        process_table[i].done = 0;
+    }
+    /* while there are still processes to schedule */
+    while (scheduled < total_processes) {
+        /* initilize the lowest total cycle time to INT_MAX(largest integer value) */
+        int lowest_cycle = INT_MAX;
+        int lowest_index = -1;
+        /* for each process not yet scheduled */
+        for (int i = 0; i < total_processes; i++) {
+            /* check if process has lower total cycle time than current lowest and has arrival time less than current cycle time and update */
+            if (process_table[i].done != 1 && process_table[i].total_cpu < lowest_cycle && process_table[i].arrival <= current_time) {
+                lowest_cycle = process_table[i].total_cpu;
+                lowest_index = i;
+            }
+        }
+        /* set start time, end time, turnaround time, done fields for unscheduled process with lowest (and available) total cycle time */
+        process_table[lowest_index].start_time = current_time;
+        process_table[lowest_index].end_time = current_time + process_table[lowest_index].total_cpu;
+        process_table[lowest_index].turnaround_time = process_table[lowest_index].end_time - process_table[lowest_index].arrival;
+        process_table[lowest_index].done = 1;
+        /* update current cycle time and increment number of processes scheduled */
+        current_time += process_table[lowest_index].total_cpu;
+        scheduled++;
+    }
+    /* print contents of table */
+    printTable();
+    return;
 }
 /***************************************************************/
 void srt() {
@@ -157,7 +177,7 @@ int main() {
         printf("2) Schedule processes with FIFO algorithm\n");
         printf("3) Schedule processes with SJF algorithm\n");
         printf("4) Schedule processes with SRT algorithm\n");
-        printf("5) Quit and free memory\n");
+        printf("5) Quit and free memory\n\n");
 
         /* prompt for menu selection */
         printf("Enter selection: ");
