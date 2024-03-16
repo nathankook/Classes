@@ -88,7 +88,7 @@ void fifo() {
         }
         /* set start time, end time, turnaround time, done fields for unscheduled process with earliest arrival time */
         process_table[earliest_index].start_time = current_time;
-        process_table[earliest_index].end_time = current_time + process_table[earliest_index].total_cpu;
+        process_table[earliest_index].end_time = process_table[earliest_index].start_time + process_table[earliest_index].total_cpu;
         process_table[earliest_index].turnaround_time = process_table[earliest_index].end_time - process_table[earliest_index].arrival;
         process_table[earliest_index].done = 1;
         /* update current cycle time and increment number of processes scheduled */
@@ -123,7 +123,7 @@ void sjf() {
         }
         /* set start time, end time, turnaround time, done fields for unscheduled process with lowest (and available) total cycle time */
         process_table[lowest_index].start_time = current_time;
-        process_table[lowest_index].end_time = current_time + process_table[lowest_index].total_cpu;
+        process_table[lowest_index].end_time = process_table[lowest_index].start_time + process_table[lowest_index].total_cpu;
         process_table[lowest_index].turnaround_time = process_table[lowest_index].end_time - process_table[lowest_index].arrival;
         process_table[lowest_index].done = 1;
         /* update current cycle time and increment number of processes scheduled */
@@ -136,33 +136,57 @@ void sjf() {
 }
 /***************************************************************/
 void srt() {
-/* declare (and initilize when appropriate) local variables */
-/* for each process, reset "done", "total_remaining" and
-"already_started" fields to 0 */
-/* while there are still processes to schedule */
-/* initilize the lowest total remaining time to INT_MAX
-(largest integer value) */
-/* for each process not yet scheduled */
-/* check if process has lower total remaining
-time than current lowest and has arrival time less than current cycle time
-and update */
-/* check if process already partially-scheduled */
-/* if so, set "start time", "already_started"
-fields of process with lowest (and available) total remaining cycle time
-*/
-/* set end time, turnaround time of process with lowest
-(and available) total remaining cycle time */
-/* decrement total remaining time of process with lowest
-(and available) total remaining cycle time */
-/* if remaining time is 0, set done field to 1, increment
-cycle time and number of scheduled processes*/
-/* print contents of table */
-return;
+    /* declare (and initilize when appropriate) local variables */
+    int scheduled = 0;
+    int current_time = 0;
+    /* for each process, reset "done", "total_remaining" and "already_started" fields to 0 */
+    for (int i = 0; i < total_processes; i++) {
+        process_table[i].done = 0;
+        process_table[i].total_remaining = process_table[i].total_cpu;
+        process_table[i].already_started = 0;
+    }
+    /* while there are still processes to schedule */
+    while (scheduled < total_processes) {
+        /* initilize the lowest total remaining time to INT_MAX (largest integer value) */
+        int lowest_remaining_time = INT_MAX;
+        int lowest_index = -1;
+        /* for each process not yet scheduled */
+        for (int i = 0; i < total_processes; i++) {
+            /* check if process has lower total remaining time than current lowest and has arrival time less than current cycle time and update */
+            if (process_table[i].done != 1 && process_table[i].total_remaining < lowest_remaining_time && process_table[i].arrival <= current_time) {
+                lowest_remaining_time = process_table[i].total_remaining;
+                lowest_index = i;
+            }
+        }
+        /* check if process already partially-scheduled */
+        if (process_table[lowest_index].already_started != 1) {
+            /* if so, set "start time", "already_started" fields of process with lowest (and available) total remaining cycle time */
+            process_table[lowest_index].start_time = current_time;
+            process_table[lowest_index].already_started = 1;
+        }
+        /* set end time, turnaround time of process with lowest (and available) total remaining cycle time */
+        process_table[lowest_index].end_time = current_time + process_table[lowest_index].total_remaining;
+        process_table[lowest_index].turnaround_time = process_table[lowest_index].end_time - process_table[lowest_index].arrival;
+        /* decrement total remaining time of process with lowest (and available) total remaining cycle time */
+        process_table[lowest_index].total_remaining--;
+        /* if remaining time is 0, set done field to 1, increment cycle time and number of scheduled processes*/
+        if (process_table[lowest_index].total_remaining == 0) {
+            process_table[lowest_index].done = 1;
+            scheduled++;
+        }
+        current_time++;
+    }
+    /* print contents of table */
+    printTable();
+    return;
 }
 /***************************************************************/
 void quit() {
-/* free the schedule table if not NULL */
-return;
+    /* free the schedule table if not NULL */
+    if (process_table != NULL) {
+        free(process_table);
+    }
+    return;
 }
 /***************************************************************/
 int main() {
