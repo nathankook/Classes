@@ -12,7 +12,7 @@ are:
 2) Schedule processes with FIFO algorithm
 3) Schedule processes with SJF algorithm (non-preemptive)
 4) Schedule processes with SRT algorithm (preemptive version of SJF)
-5) Quit program and free memory
+5) Quit program and free memory  
 Assignment:  
 - Create a table to record the status of different processes based on the following parameters:  
     - id: the unique identifier of the process
@@ -40,7 +40,7 @@ Batch scheduling
 2) Schedule processes with FIFO algorithm
 3) Schedule processes with SJF algorithm
 4) Schedule processes with SRT algorithm
-5) Quit and free memory
+5) Quit and free memory  
 Enter selection: 1  
 Enter total number of processes: 3  
 Enter process id: 1  
@@ -63,7 +63,7 @@ Batch scheduling
 2) Schedule processes with FIFO algorithm
 3) Schedule processes with SJF algorithm
 4) Schedule processes with SRT algorithm
-5) Quit and free memory
+5) Quit and free memory  
 Enter selection: 2  
 ID Arrival Total Start End Turnaround  
 --------------------------------------------------
@@ -76,7 +76,7 @@ Batch scheduling
 2) Schedule processes with FIFO algorithm
 3) Schedule processes with SJF algorithm
 4) Schedule processes with SRT algorithm
-5) Quit and free memory
+5) Quit and free memory  
 Enter selection: 3  
 ID Arrival Total Start End Turnaround  
 --------------------------------------------------
@@ -89,7 +89,7 @@ Batch scheduling
 2) Schedule processes with FIFO algorithm
 3) Schedule processes with SJF algorithm
 4) Schedule processes with SRT algorithm
-5) Quit and free memory
+5) Quit and free memory  
 Enter selection: 4  
 ID Arrival Total Start End Turnaround  
 --------------------------------------------------
@@ -102,6 +102,6 @@ Batch scheduling
 2) Schedule processes with FIFO algorithm
 3) Schedule processes with SJF algorithm
 4) Schedule processes with SRT algorithm
-5) Quit and free memory
+5) Quit and free memory  
 Enter selection: 5  
 Quitting program...  
