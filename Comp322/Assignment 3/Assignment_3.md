@@ -30,7 +30,7 @@ allocation edges, and claim edges to represent the state of allocated resources 
 
 Sample output  
 Bankers Algorithm  
-------------------  
+------------------  .
 1) Enter parameters  
 2) Determine safe sequence  
 3) Quit program  
@@ -49,20 +49,20 @@ Enter number of units of each resource (r0 to r2) allocated to process p2: 3 0 2
 Enter number of units of each resource (r0 to r2) allocated to process p3: 2 1 1  
 Enter number of units of each resource (r0 to r2) allocated to process p4: 0 0 2  
 Units Available  
-------------------------  
+------------------------  .
 r0 10 3  
 r1 5 3  
 r2 7 2  
 Max claim Current Potential  
 r0 r1 r2 r0 r1 r2 r0 r1 r2  
-------------------------------------------------------------------------------------------  
+------------------------------------------------------------------------------------------  . 
 p0 7 5 3 0 1 0 7 4 3  
 p1 3 2 2 2 0 0 1 2 2  
 p2 9 0 2 3 0 2 6 0 0  
 p3 2 2 2 2 1 1 0 1 1  
 p4 4 3 3 0 0 2 4 3 1  
 Bankers Algorithm  
-------------------  
+------------------  .
 1) Enter parameters  
 2) Determine safe sequence  
 3) Quit program  
@@ -75,7 +75,7 @@ Checking: < 4 3 1 > <= < 7 4 3 > :p4 safely sequenced
 Checking: < 7 4 3 > <= < 7 4 5 > :p0 safely sequenced  
 Checking: < 6 0 0 > <= < 7 5 5 > :p2 safely sequenced  
 Bankers Algorithm  
-------------------  
+------------------  .
 1) Enter parameters  
 2) Determine safe sequence  
 3) Quit program  
