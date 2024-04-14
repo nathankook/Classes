@@ -106,6 +106,7 @@ void enterParameters() {
         for (int j =0; j < num_resources; j++) {
             scanf("%d", &allocated[i][j]);
             need[i][j] = max_claim[i][j] - allocated[i][j];
+            available[j] = available[j] - allocated[i][j];
         }
     }
     /* print resource vector, available vector, max_claim array, allocated array, need array */
@@ -117,28 +118,57 @@ void enterParameters() {
 /********************************************************************/
 void safeSequence() {
     /* declare local variables, including vector to indicate if process is safely sequenced and "num_sequenced" count*/
-    int *done = (int *)calloc(num_processes * sizeof(int));
-    int finished = 0;
+    int *done = (int *)calloc(num_processes, sizeof(int));
+    int num_sequenced = 0;
     int at_least_one = 1;
     int i, j;
-    int less_than = 1;
     /* while not all processed are sequenced */
-    while ((finished < num_processes) && (at_least_one == 1)) {
+    while (num_sequenced < num_processes && at_least_one == 1) {
         /* for each process */
-        for (i = 0; i < num_processes; i ++) {
+        at_least_one = 0;
+        for (int i = 0; i < num_processes; i++) {
+            printf("Checking: < ");
             /* if process has not been safely sequenced yet */
+            if (!done[i]) {
+                int less_than = 1;
                 /* for each resource */
+                for (int j = 0;  j < num_resources; j++) {
+                    printf("%d ", need[i][j]);
                     /* check for safe sequencing by comparing process' need vector to available vector */
+                    if (need[i][j] > available[j]) {
+                        less_than = 0;
+                        break;
+                    }             
+                }
+                printf("> <= < ");
+                for (int j = 0; j < num_resources; j++) {
+                    printf("%d ", available[j]);
+                }
+                printf("> : ");
+                if (less_than == 1) {
+                    printf("p%d safely sequenced\n", i);
+                    for (int j = 0; j < num_resources; j++) {
+                        available[j] += allocated[i][j];
+                    }
+                    done[i] = 1;
+                    num_sequenced++;
+                    at_least_one = 1;
+                } else {
+                    printf("p%d could not be sequenced\n", i);
+                }
+            }
+        }
+    }
+
+
+
                     /* if each resource is available */
                     /* print message that process had been safely sequenced */
                     /* update number of available units of resource */
                     /* for each resource */
                         /* free all resources allocated to process */
                         /* increment number of sequenced processes */
-        }
-    }
-
-return;
+    return;
 }
 /********************************************************************/
 void quitProgram() {
