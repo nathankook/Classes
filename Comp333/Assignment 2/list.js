@@ -95,12 +95,46 @@ Cons.prototype = new List();
 Cons.prototype.isEmpty = function() {
     return false;
 }
+Cons.prototype.length = function() {
+    return 1 + this.tail.length();
+};
+Cons.prototype.filter = function() {
+    if (predicate(this.head)) {
+        return new Cons(this.head, this.tail.filter(predicate));
+    } else {
+        return this.tail.filter(predicate);
+    }
+};
+Cons.prototype.map = function (mapper) {
+    return new Cons (mapper(this.head), this.tail.map(mapper));
+};
+Cons.prototype.append = function (otherList) {
+    return new Cons(this.head, this.tail.append(otherList));
+};
+Cons.prototype.contains = function (element) {
+    return this.head === element || this.tail.contains(element);
+};
 
 function Nil() {}
 
 Nil.prototype = new List();
 Nil.prototype.isEmpty = function() {
     return true;
+};
+Nil.prototype.length = function() {
+    return 0;
+};
+Nil.prototype.filter = function(predicate) {
+    return new Nil();
+};
+Nil.prototype.map = function(mapper) {
+    return new Nil();
+};
+Nil.prototype.append = function(otherList) {
+    return otherList;
+};
+Nil.prototype.contains = function(element) {
+    return false;
 };
 
 
