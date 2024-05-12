@@ -22,7 +22,7 @@ void enterParameters() {
     scanf("%d", &pm_size);
     printf("Enter hole-fitting algorithm (0=first fit, 1=best fit): ");
     scanf("%d", &algorithm);
-    remaining = pm_size;
+    remaining = pm_size;    
     // initilize linked list with "dummy" block of size 0
     head = (struct block*)malloc(sizeof(struct block));
     head->id = -1;
@@ -38,32 +38,30 @@ void printTable() {
     struct block* current = head->next;
     // print table containing block id, starting address, ending address
     printf("ID    Start   End\n");
-    printf("-------------------\n");  
-
+    printf("-------------------\n");
     while (current != NULL) {
         printf("%-6d%-8d%d\n", current->id, current->start, current->end);
         current = current->next;       
-    }
-
+    }          
     return;
 }
 /********************************************************************/
 void allocateMemory() {
     // declare local variables
     int id, size;
+    struct block* new_block = NULL;
     struct block* current = head->next;
     struct block* prev = head;
-    struct block* new_block;
     struct block* best_block = NULL;
     // initialize best hole so far to size of physical memory
     int best_hole = pm_size;
-    int best_hole_start = 0;
-    int best_hole_end = 0;
+    int best_start, best_end;
+    // prompt for block id & block size
     // prompt for block id & block size
     printf("Enter block id: ");
     scanf("%d", &id);
     printf("Enter block size: ");
-    scanf("%d", &size);    
+    scanf("%d", &size); 
     // check if size of block is larger than remaining unallocated space, if so, print message and return
     if (size > remaining) {
         printf("Not enough memory.\n");
@@ -73,21 +71,21 @@ void allocateMemory() {
     new_block = (struct block*)malloc(sizeof(struct block));
     new_block->id = id;
     new_block->next = NULL;
-    // if only "dummy" block exists, insert block at end of linked list,set fields, return
+    // if only "dummy" block exists, insert block at end of linked list, set fields, return
     if (current == NULL) {
         head->next = new_block;
         new_block->start = 0;
-        new_block->end = new_block->start + size;
+        new_block->end = size;
         remaining -= size;
         printTable();
         return;
-    } else {    
-        // else traverse list until either appropriate hole is found or the end of the list is reached
+    // else traverse list until either appropriate hole is found or the end of the list is reached
+    } else {
         while (current != NULL) {
             // if id already exists, reject request and return
             if (current->id == id) {
                 printf("ID %d already exists. Please choose a different ID.\n", id);
-                return;
+                return;                
             }
             // set values for start and end of currently found hole
             int hole_start = prev->end;
@@ -105,34 +103,32 @@ void allocateMemory() {
                     remaining -= size;
                     printTable();
                     return;
-                } else {    // else--best-fit algorithm
+                // else--best-fit algorithm
+                } else {
                     // if hole is smaller than best so far
                     if (hole_end - hole_start < best_hole) {
                         // set values of best start & best end & best hole size so far
-                        best_hole_start = hole_start;
-                        best_hole_end = hole_end;
-                        best_hole = best_hole_end - best_hole_start;
+                        best_start = hole_start;
+                        best_end = hole_end;
+                        best_hole = best_end - best_start;
                         // update best block & advance next block
-                        best_block = prev;
+                        best_block->start = best_start
                     }
                 }
             }
             prev = current;
             current = current->next;
         }
-        // set start & end fields of new block & add block into linked list
-        if (best_block != NULL) {
-            new_block->start = best_hole_start;
-            new_block->end = best_hole_start + size;
-            new_block->next = best_block->next;
-            best_block->next = new_block;
-            // reduce remaining available memory and return
-            remaining -= size;
-            printTable();
-            return;
-        }
     }
-    printf("No suitable hole found.\n");
+    // set start & end fields of new block & add block into linked list
+    new_block->start = best_block->end;
+    new_block->end = best_block->end + size;
+    new_block->next = best_block->next;
+    best_block->next = new_block;
+
+    // reduce remaining available memory and return
+    remaining -= size;
+    printTable();
     return;
 }
 /********************************************************************/
@@ -140,10 +136,10 @@ void deallocateMemory() {
     // declare local variables
     int id;
     struct block* current = head->next;
-    struct block* prev = head;   
+    struct block* prev = head;
     // prompt for block id
     printf("Enter block ID: ");
-    scanf("%d", &id);
+    scanf("%d", &id);    
     // until end of linked list is reached or block id is found
     while (current != NULL && current->id != id) {
         // traverse list
@@ -152,32 +148,32 @@ void deallocateMemory() {
     }
     // if end of linked list reached, print block id not found
     if (current == NULL) {
-        printf("Block ID not found.\n");
-        return;
-    } else {    // else remove block and deallocate memory
-        remaining += current->end - current->start;
+        printf("Block ID not found.\n");   
+    // else remove block and deallocate memory
+    } else {
         prev->next = current->next;
-        free(current);
+        remaining += current->end - current->start;
     }
     printTable();
     return;
+
 }
 /********************************************************************/
 void defragment() {
     // declare local variables
     struct block* current = head->next;
     struct block* prev = head;
-    int new_start = 0;
+    int old_start;
     // until end of list is reached
     while (current != NULL) {
         // calculate current hole size
         int hole_size = current->start - prev->end;
         // adjust start & end fields of current block to eliminate hole
         if (hole_size > 0) {
-            current->start = new_start;
-            current->end = current->start + (current->end - current->start);
+            old_start = current->start;
+            current->start = prev->end;
+            current->end = current->start + (current->end - old_start);
         }
-        new_start = current->end;
         prev = current;
         current = current->next;
     }
