@@ -1,0 +1,70 @@
+  HW7 Resume Site
+
+In this hw, you’ll continue working on your resume site. You can continue buliding on from HW6.
+
+1.	Update the index.html file
+			a.	Let's update our projects by adding in the content wrappers. To keep the text from spanning across the whole page, starting with the header. Add the first new <div class="content-wrap"> just after the header tag. We want to make sure we enclose all of the content, but stay within the sections. It should contain all elements that the header contains.   
+
+            b. Go back to the CSS now and add in this style in the global section. We're going to keep this style here in the global section, because it's going to be reused throughout the project. Give it a width: 950px; margin: 0 auto; 
+
+2. Go back to your HTML and add that content wrapper to the rest of the page.
+            a. Add one in the work section right after the section tag. Make sure that the closing tag encloses around the content. So it should be right before the closing section tag. 
+
+            b. Add one in the education section and also the footer section. Also make sure you keep your HTML indented properly so that you can easily see where your opening and closing tags are. 
+
+            c. save work and examine your results in chrome with different window sizings.
+ 
+            d. To make the content wrapper flexible, but while still setting the width on the content, instead of using a width, we can use max-width instead. Let's go back to our CSS file and make that update. In the content-wrap selector update remove the width property with max-width: 950px;
+
+3. Practice with padding and spacing.
+            a. Still in the .content-wrap selector add some padding. I'm going to go with one value 50 pixels, (padding: 50px;). By adding padding to the content wrap, all the page sections using this class will have the same amount of padding. And this will help to keep your designs more consistent.
+
+            b. Now you may notice that while we added the same amount of padding around the entire content wrapper, there's a small difference in the amount of space between the top of the wrapper and the bottom. And that's because there is margin around the heading element. Remove the margin at the top, so that the wrapper padding is more consistent.
+
+            c. . Back in your CSS file, find your h2 selector, and we're going to set the margin-top to zero (margin-top: 0;). And that's going to remove the margin space, just from the top of the element. Save it, refresh it, check it in the browser.
+            
+            d. Next, let's address the white border around the entire page. You could see it on the left, on the bottom, the right side, and the top. Just like the spacing between the sections, this is coming from the default margin as well, but from the body element, and that's why it's wrapping the entire page. So let's go ahead and remove that. Back in your CSS file, find your body selector and set the margin to zero (margin: 0;). Now the white space is gone and the background colors span all the way across
+        
+            e. Let's go back to the footer. We should probably add some space in between these links. Also, longer blocks of text are usually easier to read when it's left align, but since there's not much content here, let's also center align the text. Back in our CSS file, let's go down to the footer section. Use footer as your selector add the property (text-align: center). Save it, and refresh your browser. By adding text-align center to the footer, all of the child elements within have inherited the style.
+
+            f. Back in our HTML file, to make sure that we add the styles only to the links within the footer, we're going to add a class to this div that's containing all the links. After the h2 tag that says "Let's Keep in Touch!" Add a <div class="contact-info">. This div should contain all the anchor tags.
+            
+            g. Back in the CSS file, Create a new declaration block, and name it (.contact-info a{} ) I'm also going to apply these styles to the links, so I'm using a descendant selector, a to target the links inside of the contact-info class. Inside that selector set  the values of (padding: 10px; display: inline-block;) I'm going to choose the value of inline-block, because I still want these elements to align side by side, in a line, but I also wanted to apply the padding properly, like block level elements.
+
+4. Practicing with floats in the header
+            a. So the first thing we're going to focus on is the profile image. Something to note, images can be resized with CSS, but it's best to crop the file to the size that you need it to be. The larger the image, the more bandwidth the browser will use to load it. In the CSS, let's set the width and height of our profile image to 300 pixels.
+
+            b. In the HTML add a class inside the image tag and name it profile-img. That way you can make sure to target only this image in the CSS. Also add it to the header section in your CSS (.profile-img{}). Inside that selector set the (width: 300px;). You don't need to set the height, because by setting the width, the height will automatically adjust to maintain the aspect ratio of the image. Go ahead and save the file and check your changes in the browser.
+
+            c. Add one more CSS style to .profile-image selector called border-radius give it a value of 50%. (border-radius:50%;) Save it and go back to the browser.
+
+            d. The next thing we're going to do is tighten up the header design by removing some margins. I want the h1 name  and the h2 tagline to be closer together so remove the margin from both of these h1s and h2 headings. Back in your CSS go to your header h1, header h2 selector and add (margin: 0;) there. Go ahead and go back to the browser and check for your changes.
+
+            e. Float the text around the image, add a float: left to the profile-img selector.
+
+            f. Add the overflow property to the content-wrap selector. Use the value of hidden.
+
+            g. Add a little bit of margin on the right side of your image, just to put some space between it and the text. Back in the profile-img selector, add (margin-right: 30 px). Save and go back to the browser and check for your changes. 
+
+5. Add the box model fix
+            a. Let's add the box model fix. Use the snippet from the lecture and add it to your CSS file. This is going to go at the very top of your style sheet. Add it to the global section since this style is applied to every single element on the page.
+
+6. Add some columns to your page
+            a. The first step is to put a box around all of the text elements to group them as one component. Let's go back to the HTML file. We'll use a div tag to create the container because this is only for styling purposes. And we'll add a class as well. We're going to be creating two columns, so we can call it column-narrow and column-wide. You'll be using these column styles again to align the content in the work experience section. So this is going to be a reusable style.
+            
+            b. In the HTML add a class of column-narrow to your img tag.
+            
+            c. add a new <div class="column-wide"> that contains the h1, h2, and paragraph tags in your header section. 
+            
+            d. In your CSS set the style properties for the newly added .column-narrow selector to width: 30%; float left; padding-right: 3%; min-height 175px;
+            
+            e. Set the style properties for the newly added .column-wide to width: 70%; float left; min-height: 225px;
+            
+            f. remove or comment out the width, float, and margin values from the profile-img selector. Since we'll be using these new global column styles instead to align the content. You can keep the border-radius: 50%; property. 
+            
+            g. Back in your html file add divs and classes to your Work Experince section to apply our new styling.
+                i. add a new <div class="column-narrow"> that contatins the h3 Job tile, p Company Name, and p Date at job tags in your Job Details section. 
+                ii. add a new <div class="column-wide"> that contatins the p Job summary, p Optional list, and the ul tags in you Job Details section. 
+                iii. make sure to add that to all your job items.. 
+
+
