@@ -1,0 +1,105 @@
+html, body {
+  background: #bd3944; /* azul (shade of red) */
+  margin: 0;
+}
+
+body {
+  font-family: monospace;
+  font-size: 100%;
+  width: 80%;
+  margin-right: auto;
+	margin-left: auto;
+  padding: 2.5% 2.5% 0;
+  line-height: 1.8;
+  background: white;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+  color: #53212b;
+}
+
+p {
+	margin-bottom: 1em;
+}
+
+h1 {
+  font: 2.3em Impact, fantasy;
+  margin-bottom: .4em;
+}
+
+h2 {
+	font: 2.5em Trebuchet MS, sans-serif;
+  font-weight: bold;
+	margin-bottom: .2em;
+}
+
+h3 {
+  font: 1.2em Verdana, Geneva, sans-serif;
+  font-weight: bold;
+}
+
+h4 {
+  font: 1em Gill Sans, sans-serif;
+  font-weight: bold;
+}
+
+h5 {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+dt {
+  font-family: Trebuchet MS, sans-serif;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+header h2 {
+	padding-bottom: .2em;
+	border-bottom: 1px solid #bd3944;
+}
+
+footer {
+	border-top: 1px solid #bd3944;
+	text-align: center;
+	font-size: .8em;
+	line-height: 4em;
+	margin-top: 1em;
+}
+
+/* for centering images */
+.center-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* role images have white background so this changes it to black background */
+.role-image {
+  background: black;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid black;
+}
+       
+th {
+  background-color: #bd3944;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
