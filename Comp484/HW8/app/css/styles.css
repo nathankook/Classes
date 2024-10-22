@@ -1,0 +1,144 @@
+/* Color Palette
+# - onyx 30292f
+# - english violet 413f54
+# - blue 355691
+# - ultra violet 5f5aa2
+*/
+
+/* Global styles 
+------------------------------------*/
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #B0E0E6;
+  font-family: 'PT Sans', Verdana, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0;
+}
+
+h1 {
+  font-family: 'Oswald', Trebuchet MS, sans-serif;
+  font-size: 35px;
+  font-weight: 700;
+}
+
+h2 {
+  font-family: 'Oswald', Trebuchet MS, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 0;
+}
+
+h3 {
+  font-family: 'PT Sans', Verdana, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.content-wrap {
+  max-width: 950px; 
+  margin: 0 auto; 
+  padding: 50px;
+  overflow: hidden;
+}
+
+.column-narrow {
+  width: 30%; 
+  float: left; 
+  padding-right: 3%; 
+  min-height: 175px;
+}
+
+.column-wide {
+  width: 70%; 
+  float: left;
+  min-height: 225px;
+}
+
+.navigation {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+nav {
+  background-color: #FFDAB9;
+  padding: 20px;
+}
+
+nav a {
+  margin: 0 20px;
+  color: #36454F;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #B0E0E6;
+}
+
+/* Header & Footer 
+------------------------------------*/
+header {
+  background-color: #B0E0E6;
+  padding: 20px;
+}
+
+.profile-img {
+  border-radius: 50%;
+  /* width: 300px;
+  float: left;
+  margin-right: 30px; */
+}
+
+header h1, header h2 {
+  margin: 0;
+}
+
+
+footer {
+  background-color: #B0E0E6;
+  text-align: center;
+}
+
+.image-bg {
+  background: url(https://cdn.glitch.global/68fbcc0d-74ea-4bda-a1b4-1c8f6cfd3934/2480992.jpg?v=1729199433694);
+  background-position: 20% 20%;
+}
+
+.contact-info {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.contact-info a{
+  padding: 10px;
+  display: inline-block;
+  color: #355691;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  color: #5f5aa2;
+}
+
+/* Work Experience
+------------------------------------*/
+.work-experience {
+  background-color: #36454F;
+  padding: 20px;
+}
+
+
+/* Education
+------------------------------------*/
+.education {
+  background-color: #36454F;
+  padding: 20px;
+}
