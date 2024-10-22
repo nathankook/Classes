@@ -1,0 +1,61 @@
+/* Color Palette
+# - onyx 30292f
+# - english violet 413f54
+# - blue 355691
+# - ultra violet 5f5aa2
+*/
+
+/* Global styles 
+------------------------------------*/
+body {
+  background-color: #B0E0E6;
+  font-family: 'PT Sans', Verdana, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0;
+}
+
+h1 {
+  font-family: 'Oswald', Trebuchet MS, sans-serif;
+  font-size: 35px;
+  font-weight: 700;
+}
+
+h2 {
+  font-family: 'Oswald', Trebuchet MS, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+h3 {
+  font-family: 'PT Sans', Verdana, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* Header & Footer 
+------------------------------------*/
+header {
+  background-color: #B0E0E6;
+  padding: 20px;
+}
+
+footer {
+  background-color: #B0E0E6;
+  padding: 20px;
+}
+
+/* Work Experience
+------------------------------------*/
+.work-experience {
+  background-color: #36454F;
+  padding: 20px;
+}
+
+
+/* Education
+------------------------------------*/
+.education {
+  background-color: #36454F;
+  padding: 20px;
+}
