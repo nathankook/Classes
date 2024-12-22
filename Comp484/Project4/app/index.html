@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script 
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMWLET02kQxUtjPpuN8ekWG1EXLA7Rw40&callback=initMap" 
+      async 
+      defer>
+    </script>
+    <title>CSUN Map Quiz</title>
+  </head>
+  <body>
+    <h1>CSUN Map Quiz</h1>
+    <p id="instructions">Double click where you think the location is!</p>
+    <p id="location-name"></p>
+    
+    <!-- Feedback area -->
+    <p id="feedback"></p>
+    <p id="score"></p>
+    <p id="timer"></p>
+    <p id="high-score"></p>
+    <button id="reset-button">Reset Game</button>
+    
+    <!-- Map Container -->
+    <div id="map"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
