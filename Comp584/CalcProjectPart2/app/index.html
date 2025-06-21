@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Calculator App</title>
+    
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+ 
+  </head>  
+  <body>
+    <div class="wrapper">
+        <section class="calculator-screen">
+          <div class="grid-container">
+            <article class="display">
+              <p>0</p>
+            </article>
+          </div>
+        </section>
+        
+        <!-- Calculator buttons -->
+        <section class="calculator-buttons">
+          <!-- Row 1 (Clear, Backspace, Divide)-->
+          <div class="grid-container">
+            <article class="two-wide-button">
+              <button>C</button>
+            </article>
+            <article class="one-wide-button">
+              <button>←</button>
+            </article>
+            <article class="one-wide-button">
+              <button class="operations">/</button>
+            </article>
+          </div>
+          <!-- Row 2 (7, 8, 9, Multiply) -->
+          <div class="grid-container">
+            <article class="one-wide-button">
+              <button>7</button>
+            </article>
+            <article class="one-wide-button">
+              <button>8</button>
+            </article>
+            <article class="one-wide-button">
+              <button>9</button>
+            </article>
+            <article class="one-wide-button">
+              <button class="operations">x</button>
+            </article> 
+          </div>
+          <!-- Row 3 (4, 5, 6, Subtract) -->
+          <div class="grid-container">
+            <article class="one-wide-button">
+              <button>4</button>
+            </article>
+            <article class="one-wide-button">
+              <button>5</button>
+            </article>
+            <article class="one-wide-button">
+              <button>6</button>
+            </article>
+            <article class="one-wide-button">
+              <button class="operations">-</button>
+            </article> 
+          </div>
+          <!-- Row 4 (1, 2, 3, +) -->
+          <div class="grid-container">
+            <article class="one-wide-button">
+              <button>1</button>
+            </article>
+            <article class="one-wide-button">
+              <button>2</button>
+            </article>
+            <article class="one-wide-button">
+              <button>3</button>
+            </article>
+            <article class="one-wide-button">
+              <button class="operations">+</button>
+            </article> 
+          </div>
+          <!-- Row 5 (0, Equals) -->
+          <div class="grid-container">
+            <article class="one-wide-button">
+              <button>+/-</button>
+            </article>
+            <article class="two-wide-button">
+              <button>0</button>
+            </article>
+            <article class="one-wide-button">
+              <button class="operations">=</button>
+            </article>
+          </div>
+          <!-- Row 6 (%, 1/x, x^2, square root of x) -->
+          <div class="grid-container">
+            <article class="one-wide-button">
+              <button>%</button>
+            </article>
+            <article class="one-wide-button">
+              <button>1/x</button>
+            </article>
+            <article class="one-wide-button">
+              <button>x²</button>
+            </article>
+            <article class="one-wide-button">
+              <button>√x</button>
+            </article> 
+          </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

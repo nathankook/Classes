@@ -1,0 +1,74 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+.wrapper {
+    width: 400px;
+}
+
+/* Button style */
+button {
+  font-size: 30px;
+  width: 100%;
+  height: 110px;
+  border: 1px solid black;
+  background-color: #D3D3D3;
+}
+/* Style for operations buttons */
+.operations {
+  background-color: #FF9500;
+}
+
+/* Grid container */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+}
+
+/* Column spans and styles */
+.display {
+  grid-column: span 4;
+  background-color: black;
+  color: white;
+  font-size: 30px;
+  text-align: right;
+  padding: 10px;
+}
+/* Grid style for 3 span button */
+.three-wide-button {
+  grid-column: span 3;
+}
+/* Grid style for 2 span button */
+.two-wide-button {
+  grid-column: span 2;
+}
+/* Grid style for 1 span button */
+.one-wide-button {
+  grid-column: span 1;
+}
+
+/* Active and hover classes */
+/* Style for when buttons are active (clicked) */
+button:active {
+  background-color: white !important;
+}
+/* Style for when button is hovered */
+button:hover {
+  background-color: #e6e6e6;
+  cursor: pointer;
+}
+/* Style for when operations buttons are active (clicked) */
+.operations:active {
+  background-color: #FFBF70 !important;
+}
+/* Style for when operations button is hovered */
+.operations:hover {
+  background-color: #FFA530;
+  cursor: pointer;
+}
