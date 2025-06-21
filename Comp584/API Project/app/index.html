@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Animation App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Weather Forecast</h1>
+      <!-- Search Box -->
+      <div class="search-box">
+        <input type="text" id="city-input" placeholder="Enter city name..." />
+        <button id="search-btn">Search</button>
+      </div>
+      <!-- Current Weather -->
+      <div class="weather-container">
+        <div class="current-weather">
+          <h2 id="city-name">City</h2>
+          <div class="weather-info">
+            <div class="temperature-container">
+              <div id="temperature">--</div>
+              <div class="unit">°C</div>
+            </div>
+            <div id="weather-description">--</div>
+            <div id="weather-icon"></div>
+          </div>
+        </div>
+        <!-- Weather Details -->
+        <div class="weather-details">
+          <div class="detail">
+            <div class="detail-label">Humidity</div>
+            <div id="humidity">--</div>
+          </div>
+          <div class="detail">
+            <div class="detail-label">Wind Speed</div>
+            <div id="wind-speed">--</div>
+          </div>
+          <div class="detail">
+            <div class="detail-label">Pressure</div>
+            <div id="pressure">--</div>
+          </div>
+        </div>
+
+        <div class="animation-container" id="animation-container">
+          <!-- Animation elements will be added here via JavaScript -->
+        </div>
+      </div>
+
+      <div class="error-message" id="error-message"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popmotion/11.0.3/popmotion.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
