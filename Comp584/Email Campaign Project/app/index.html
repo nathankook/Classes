@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<style type="text/css">
+      /* CLIENT-SPECIFIC STYLES */
+			body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+			table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+			img { -ms-interpolation-mode: bicubic; }
+			
+			/* RESET STYLES */
+			img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+			table { border-collapse: collapse !important; }
+			body { height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important; }
+			
+			/* iOS BLUE LINKS */
+			a[x-apple-data-detectors] {
+			    color: inherit !important;
+			    text-decoration: none !important;
+			    font-size: inherit !important;
+			    font-family: inherit !important;
+			    font-weight: inherit !important;
+			    line-height: inherit !important;
+			}
+			
+			/* GMAIL BLUE LINKS */
+			u + #body a {
+			    color: inherit;
+			    text-decoration: none;
+			    font-size: inherit;
+			    font-family: inherit;
+			    font-weight: inherit;
+			    line-height: inherit;
+			}
+			
+			/* SAMSUNG MAIL BLUE LINKS */
+			#MessageViewBody a {
+			    color: inherit;
+			    text-decoration: none;
+			    font-size: inherit;
+			    font-family: inherit;
+			    font-weight: inherit;
+			    line-height: inherit;
+			}
+
+			/* Universal styles for links and stuff */
+      
+      /* style for links */
+      a { color: blue; font-weight: bold; }
+      /* style for hovering links; !important so the text underline is gone when hovered */
+      a:hover { color: red ; text-decoration: none !important; }
+      /* makes button properties transition smoother using ease */
+      a.button { transition: all 0.3s ease; }
+      /* style and interactivity for hovering button */
+      a.button:hover { 
+        background-color: #CBC3E3 !important; 
+        box-shadow: 10px 5px 5px rgba(0, 0, 255, 0.4);
+        transform: translateY(-2px);
+      }
+      
+      /* hides default radio inputs */
+      input { display: none; }
+      /* makes labels look clickable */
+      label { cursor: pointer; }
+      
+      /* fills in button that is checked */
+      #slide1:checked ~ .slide-label[for="slide1"] {
+        background-color: #FDB927;
+        color: black;
+      }
+      #slide2:checked ~ .slide-label[for="slide2"] {
+        background-color: #FDB927;
+        color: black;
+      }
+      
+      /* hides slides */
+      .slide { display: none; }
+      /* shows checked slide */
+      #slide1:checked ~ .slide1,
+      #slide2:checked ~ .slide2{
+        display: block;
+      }
+      /* increase label size when hovered over */
+      .slide-label:hover {
+        transform: scale(1.2);
+        transition: all 0.3s ease;
+      }
+
+			/* Responsive styles */
+      
+      /* will apply styles if browser's viewport width is equal to or narrower than 600px */
+      @media screen and (max-width: 600px) {
+        
+        /* change table width to 100% and font size to 16px to make it fluid for smaller screens */
+        .mobile { width: 100% !important; font-size: 16px !important; }
+        
+        /* set display to block to help w/ stacking and set width to 100% to fill its area in full */
+        /* only stacked the two column table bc it made more sense for the 3 column table to stay in column format */
+        .block { display: block !important; width: 100% !important; }
+      }
+      
+      /* keyframe animations */
+      
+      /* slide in animation for h1*/
+      @keyframes slide-in {
+        from { 
+          transform: translateX(150%);
+          scale: 200%;
+        }
+        to {
+          transform: translateX(0%);
+          scale: 100%;
+        }
+      }
+      
+      .slidein { animation: 2s 1 slide-in; }
+      
+      /* fade in animation */
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      
+      .fade { animation: 2s 1 fade-in; }
+      
+      /* color change animation */
+      @keyframes change-color {
+        from {
+          color: #FDB927;
+        }
+        to {
+          color: white;
+        }
+      }
+      h2 span {
+        animation: change-color 5s 1 ease-in-out;
+      }
+	
+		</style>
+	</head>
+	<body id="body" style="margin: 0 !important; padding: 0 !important; background-color: #FDB927">
+  
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>
+        <table class="mobile" border="0" cellpadding="0" cellspacing="0" width="600" style="margin: 20px auto; padding: 20px; border-radius: 25px; background-color: #552583; color: white">
+          
+          <tr>
+            <td>
+              <!-- Logo image -->
+              <img src="https://cdn.glitch.global/a1c07244-f14d-4fa7-b8be-febc6f4a6635/nba-logo_2x.png?v=1738984371445" alt="NBA Logo" width="600" style="max-width: 100%; min-width: 100px; width: 50%; display: block; margin: auto">
+            </td>
+          </tr>
+          
+          <tr>
+            <td style="padding: 10px; ">
+              <!-- Headline -->
+              <h1 class="slidein" style="text-align: center; font-family: Helvetica, Arial, sans-serif">Showtime Basketball is Back!</h1>
+            </td>
+          </tr>
+
+          <tr>
+            <td>  
+              <!-- Hero Image -->
+              <img class="fade" src="https://cdn.glitch.global/a1c07244-f14d-4fa7-b8be-febc6f4a6635/Los_Angeles_Lakers_logo.svg.png?v=1738986651911" alt="Los Angeles Lakers Logo" width="600" style="max-width: 100%; min-width: 100px; width: 50%; display: block; margin: auto; padding: 20px">
+            </td>
+          </tr>
+          
+          <!-- Body copy -->
+          <tr>
+            <td style="text-align: center; padding: 20px; background: url(https://cdn.glitch.global/6f31a8c7-4d4e-4efd-8319-e7d4ae8f9766/usa_today_13865461.0.jpg?v=1739589987617); background-size: cover; background-position: top center" background="https://cdn.glitch.global/6f31a8c7-4d4e-4efd-8319-e7d4ae8f9766/usa_today_13865461.0.jpg?v=1739589987617">
+              <h2 class="subheadline" style="font-family: Helvetica, Arial, sans-serif; color: white">
+                A New Era Begins in Los Angeles - Welcome <span>Luka Doncic!</span>
+              </h2>
+            </td>
+          </tr>
+          
+          <tr>
+            <td class="body-content" style="padding: 20px; line-height: 2; font-family: Georgia, Times New Roman, serif">
+              <p>
+                Lakers Nation, the NBA world has just been shaken!
+              </p>
+              <p>
+                In a <strong>franchise altering move</strong>, the Los Angeles Lakers have acquired <strong>Luka Doncic</strong> in a blockbuster trade, sending <strong>Anthony Davis</strong> to the Dallas Mavericks. This marks the beginning of a <em>new era of showtime basketball!</em>
+              </p>
+              <p>
+                <strong>What Luka Brings to LA:</strong>
+              </p>
+              <ul>
+                <li><strong>Elite Scoring and Playmaking</strong> - One of the most gifted offensive players in the game.</li>
+                <li><strong>Strong Clutch Factor</strong> - No moment is too big for Luka Magic!</li>
+                <li><strong>Showtime Revival</strong> - A perfect superstar alongside Lebron James and Austin Reaves to lead the next Lakers dynasty.</li>
+              </ul>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>
+              <h2 style="text-align: center">
+                Upcoming Games:
+              </h2>
+            </td>
+          </tr>
+          
+          <!-- Three column table -->
+          <tr>
+            <td>
+              <!-- 1st column of three column table -->
+              <table align="left" border="0" cellpadding="0" cellspacing="0" width="33%">
+                <tr>
+                  <td style="text-align: center">
+                    <p>
+                      <strong>Date:</strong>
+                    </p>
+                    <p>
+                      Feb. 27
+                    </p>
+                    <p>
+                      Feb. 28
+                    </p>
+                    <p>
+                      Mar. 2
+                    </p>
+                    <p>
+                      Mar. 4
+                    </p>
+                    <p>
+                      Mar. 6
+                    </p>
+                  </td>
+                </tr>
+              </table>
+              
+              <!-- 2nd column of three column table -->
+              <table align="right" border="0" cellpadding="0" cellspacing="0" width="33%">
+                <tr>
+                  <td style="text-align: center">
+                    <p>
+                      <strong>Time: </strong>
+                    </p>
+                    <p>
+                      7:30 PM PST
+                    </p>
+                    <p>
+                      7:00 PM PST
+                    </p>
+                    <p>
+                      6:30 PM PST
+                    </p>
+                    <p>
+                      7:30 PM PST
+                    </p>
+                    <p>
+                      7:00 PM PST
+                    </p>
+                  </td>
+                </tr>
+              </table>
+              
+              <!-- 3rd column of three column table -->
+              <table align="right" border="0" cellpadding="0" cellspacing="0" width="33%">
+                <tr>
+                  <td style="text-align: center">
+                    <p>
+                      <strong>Opponent:</strong>
+                    </p>
+                    <p style="font-size: 15px ">
+                      Minnesota Timberwolves
+                    </p>
+                    <p>
+                      Los Angeles Clippers
+                    </p>
+                    <p>
+                      Los Angeles Clippers
+                    </p>
+                    <p>
+                      New Orleans Pelicans
+                    </p>
+                    <p>
+                      New York Knicks
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          
+          <!-- Padding based button -->
+          <tr>
+            <td>
+              <table role="button" width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td align="center" style="padding: 30px;">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td bgcolor="#FDB927" style="padding: 12px 18px 12px 18px; border-radius: 10px;" align="center">
+                          <a class="button" href="https://www.nba.com/lakers/" target="_blank" style="font-size: 18px; font-family: sans-serif; font-weight: bold; color: #552583; text-decoration: none; display: inline-block">Buy Tickets Now!</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          
+          <!-- Two column table -->
+          <tr>
+            <td>
+              <!-- Left column of two column table -->
+              <table align="left" border="0" cellpadding="0" cellspacing="0" class="block" width="48%">
+                <tr>
+                  <td style="padding: 20px; line-height: 20px">
+                    <h2 style="font-size: 20px; text-align: center;">
+                      🔥 Lakers Fan Giveaways
+                    </h2>
+                    <p style="text-align: center">
+                      Enter to win an autographed Luka Doncic jersey!
+                    </p>
+                    <p style="text-align: center">
+                      How to enter:
+                    </p>
+                    <ul style="list-style: none; padding: 0">
+                      <li>1. Follow <strong>@Lakers</strong> on Instagram</li>
+                      <li>2. Retweet our official trade announcement</li>
+                      <li>3. Sign up for exclusive Lakers updates</li>
+                    </ul>
+                    <p>
+                      💜💛 Winners announced this Sunday!
+                    </p>
+                  </td>
+                </tr>
+              </table>
+              
+              <!-- Right column of two column table -->
+              <table align="right" border="0" cellpadding="0" cellspacing="0" class="block" width="48%">
+                <tr>
+                  <td style="padding: 20px; line-height: 20px;">
+                    <h2 style="font-size: 20px; text-align: center;">
+                      📢 Fan Poll: What’s Next for the Lakers?
+                    </h2>
+                    <p style="text-align: center">
+                      What’s the <em>biggest key</em> to a Lakers championship run?
+                    </p>
+                    <ul>
+                      <li>More 3-point shooting</li>
+                      <li>More defensive depth</li>
+                      <li>A faster offensive pace</li>
+                    </ul>
+                    <p>
+                      👉 Vote now and have your voice heard!
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          
+          <tr>
+            <td align="center" style="padding: 20px; ">
+              <!-- Buttons for switching content -->
+              <input type="radio" name="slides" id="slide1" checked>
+              <input type="radio" name="slides" id="slide2">
+              
+              <!-- labels -->
+              <label for="slide1" class="slide-label" style="border: 2px solid #FDB927; display: inline-block; margin: 10px; padding: 4px 20px; ">Merch</label>
+              <label for="slide2" class="slide-label" style="border: 2px solid #FDB927; display: inline-block; margin: 10px; padding: 4px 20px; ">Fan Club</label>
+              
+              <!-- slide 1 -->
+              <div class="slide slide1" style="text-align: left; padding: 20px;">
+                <p>
+                  <strong>Rep Your Lakers Pride with New Gear!</strong>
+                </p>
+                <p>
+                    Show your support for the purple and gold with the latest Lakers merchandise! From jerseys to hats, hoodies to collectibles, we’ve got everything you need to show your team spirit.
+                </p>
+                <p>
+                  <strong>🔥 Featured Items:</strong>
+                </p>
+                <ul>
+                  <li>Luka Doncic #77 Lakers Jersey – Get yours before they sell out!</li>
+                  <li>Lakers Championship Hoodies – Celebrate our historic legacy in style.</li>
+                  <li>Limited-Edition Showtime Collection – Inspired by the golden era of Lakers basketball!</li>
+                </ul>
+                <p>
+                  👉 Shop now and get 20% off your first order!
+                </p>
+              </div>
+              <!-- slide 2 -->
+              <div class="slide slide2" style="text-align: left; padding: 20px;">
+                <p>
+                  <strong>💜💛 Become an Official Lakers Insider!</strong>
+                </p>
+                <p>
+                  Want exclusive Lakers news, early access to tickets, and members-only giveaways? Join the <strong>Lakers Fan Club</strong> and get closer to the action!
+                </p>
+                <p>
+                  <strong>🚀 Perks Include:</strong>
+                </p>
+                <ul>
+                  <li>Presale Ticket Access – Never miss a Lakers home game!</li>
+                  <li>VIP Meet and Greets – Exclusive events with Lakers legends and current stars.</li>
+                  <li>Autographed Memorabilia Giveaways – Win signed jerseys, basketballs, and more!</li>
+                </ul>
+                <p>
+                  💜 Join now and enter to win a signed Lebron James jersey! 💛
+                </p>
+              </div>
+            </td>
+          </tr>
+          
+            <!-- Footer information: Always include an unsubscribe link! -->
+          <tr>
+            <td class="footer" style="text-align: center">
+              <p>
+                You received this email because you are a Lakers fan! Click to <a href="#" style="text-decoration: underline">unsubscribe</a>
+              </p>
+            </td>
+          </tr>
+          
+          
+        </table>
+      </td>
+    </tr>
+  </table>
+    
+	</body>
+</html>

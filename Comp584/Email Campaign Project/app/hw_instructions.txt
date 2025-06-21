@@ -1,0 +1,20 @@
+* Add a two column component to your email with some new content.
+* Add a three column component to your email with some new content.
+* Add responsiveness to your multi-column layout
+  *  Make the columns stack on mobile 
+  * Adjust text size also. 
+* Add Interactivity to button(s) and link(s)
+* Add animation using keyframes. (Bonus points if you use properties other than opacity and scale)
+* Apply the checked box technique to add some more interactivity to your email
+  * Use radio buttons, labels, and divs
+* Use the resource tools introduced.
+  * Send yourself your email code to see what a user will receive
+  * Interact with it and see how they work in those different email clients. 
+  * Make notes of what worked and what didn’t based on the client.
+  * Report your findings (with screen shots) on a separate file (.pdf format) in the Glitch assets section
+* If needed Revise content to set up your own email campaign. 
+  * Example Emails could be
+    * Recommendation to visit a product or service company website
+    * Grab prospective employers interest to visit your linkedIn/resume page. 
+    * If you have other ideas check with the professor.
+* Make sure to add comments explaining your implementation. 
