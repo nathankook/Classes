@@ -1,0 +1,159 @@
+/* Border box declaration 
+https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+html {
+  box-sizing: border-box;
+}
+/* inherit border-box on all elements in the universe and before and after
+ */
+*, 
+*:before, 
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+	font-family: Arial, Geneva, sans-serif;
+}
+a {
+	color: #2772B0;
+}
+.wrapper {
+	width: 97%;
+	max-width: 1200px;
+	margin: 0 auto;
+	float: none;
+	background-color: #fff;
+}
+
+div img {
+	width: 100%;
+	max-width: 225px; 
+}
+
+/* grid container */
+.grid-container {
+	display: grid;
+  /* grid template of 4 columns */
+  grid-template-columns: repeat(4, 1fr);
+  /* gap in between grid columns */
+  gap: 10px;
+  /* rows/columns will adjust to content size */
+  grid-auto-rows: auto;
+  grid-auto-columns: auto;
+  /* specifies how auto-placed items get flowed into grid */
+  grid-auto-flow: row;
+}
+
+/* separate grid container for 5 column row */
+.grid-container-5 {
+  display: grid;
+  /* grid template of 5 columns */
+  grid-template-columns: repeat(5, 1fr);
+  /* gap in between grid columns */
+  gap: 10px;
+  /* rows/columns will adjust to content size */
+  grid-auto-rows: auto;
+  grid-auto-columns: auto;
+  /* specifies how auto-placed items get flowed into grid */
+  grid-auto-flow: row;
+}
+
+/* Add background colors to see how much space each column is taking */
+
+.col-1 {
+	background-color: #EDEADE;
+}
+
+.col-2 {
+	background-color: #D9CAB3;
+}
+
+.col-3-left, .col-3-right {
+  background-color: #A3B18A;
+}
+
+.col-4 {
+  background-color: #7796B6;
+}
+
+.col-5-left, .col-5-middle, .col-5-right {
+  background-color: #F4D58D;
+}
+
+.col-6 {
+  background-color: #E8A598 ;
+}
+
+/* Tablet Landscape Screen Sizes */
+@media only screen and (min-width: 480px)  {
+	
+  .col-1,
+  .col-2{
+		grid-column: span 2;
+	}
+  
+  .col-3-left, .col-3-right {
+    grid-column: span 4;
+  }
+  
+  .col-4 {
+    grid-column: span 4;
+  }
+  
+  .col-5-middle {
+    grid-column: span 4;
+    order: -1;
+  }
+  
+  .col-5-left, .col-5-right {
+    grid-column: span 2;
+  }
+  
+  .col-6 {
+    grid-column: span 5;
+  }
+  
+
+
+
+}
+/* Desktop screen Sizes */
+@media only screen and (min-width: 768px) {
+  
+  
+ 	.col-1 {
+		grid-column: span 1;
+	}
+  
+	.col-2 {
+		grid-column: span 2;
+	}
+  
+  .col-3-left {
+    grid-column: span 1;
+  }
+  
+  .col-3-right {
+    grid-column: span 3;
+  }
+  
+  .col-4 {
+    grid-column: span 4;
+  }
+  
+  .col-5-left, .col-5-right {
+    grid-column: span 1;
+  }
+  
+  .col-5-middle {
+    grid-column: span 2; 
+    order: 0;
+  }
+  
+  .col-6 {
+    grid-column: span 1;
+  }
+  
+  
+
+}
