@@ -1,0 +1,142 @@
+/* Border box declaration 
+https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+html {
+  box-sizing: border-box;
+}
+/* inherit border-box on all elements in the universe and before and after
+ */
+*, 
+*:before, 
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+	font-family: Arial, Geneva, sans-serif;
+}
+a {
+	color: #2772B0;
+}
+.wrapper {
+	width: 97%;
+	max-width: 1200px;
+	margin: 0 auto;
+	float: none;
+	background-color: #ffffff;
+}
+
+div img {
+	width: 100%;
+	max-width: 225px; 
+}
+
+/* flex contatiner */
+
+.row {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+/* attribute selector to give some margin between columns and apply styles to flex items */
+
+[class*="col-"] {
+	margin-left: 4%;
+	flex: 0 0 92%;
+}
+
+/* Add background colors to see how much space each column is taking */
+
+.col-1 {
+	background-color: #EDEADE;
+}
+
+.col-2 {
+	background-color: #D9CAB3;
+}
+
+.col-3-left, .col-3-right {
+  background-color: #A3B18A;
+}
+
+.col-4 {
+  background-color: #7796B6;
+}
+
+.col-5-left, .col-5-middle, .col-5-right {
+  background-color: #F4D58D;
+}
+
+.col-6 {
+  background-color: #E8A598 ;
+}
+
+/* Tablet Landscape Screen Sizes */
+@media only screen and (min-width: 480px)  {
+	
+  .col-1,
+  .col-2{
+		flex: 0 0 44%;
+	}
+  
+  .col-3-left, .col-3-right {
+    flex: 0 0 92%;
+  }
+  
+  .col-4 {
+    flex: 0 0 92%;
+  }
+  
+  .col-5-middle {
+    flex: 0 0 92%;
+    order: -1;
+  }
+  
+  .col-5-left, .col-5-right {
+    flex: 0 0 44%;
+  }
+  
+  
+
+
+
+}
+/* Desktop screen Sizes */
+@media only screen and (min-width: 768px) {
+  
+  /* flex basis for 4 columns in 1 row */
+ 	.col-1 {
+		flex: 0 0 20%;
+	}
+  /* flex basis for 2 columns spanning 1 row */
+	.col-2 {
+		flex: 0 0 44%;
+	}
+  /* flex basis for narrow left column */
+  .col-3-left {
+    flex: 0 0 20%;
+  }
+  /* flex basis for wide right column */
+  .col-3-right {
+    flex: 0 0 68%;
+  }
+  /* flex basis for one column spanning entire row */
+  .col-4 {
+    flex: 0 0 92%;
+  }
+  /* flex basis for left and right colummn */
+  .col-5-left, .col-5-right {
+    flex: 0 0 20%;
+  }
+  /* flex basis for middle column (2 wide) */
+  .col-5-middle {
+    flex: 0 0 44%;
+    order: 0;
+  }
+  /* flex basis for 5 column row */
+  .col-6 {
+    flex: 0 0 15.2%;
+  }
+  
+  
+
+}
